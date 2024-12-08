@@ -21,7 +21,7 @@ function Book(name, author, year) {
   this.year = year
 }
 Book.prototype.toString = function() {
-    return `${this.name} by ${this.author} (${this.year})`;
+  return `${this.name} by ${this.author} (${this.year})`;
 };
 
 
@@ -30,23 +30,30 @@ myLibrary.push(new Book("To Kill a Mockingbird", "Harper Lee", 1960))
 
 
 function showBooks(){
-    myLibrary.map(book => console.log(book.toString()));
+  myLibrary.map(book => console.log(book.toString()));
 }
 
+function dispalyBooks(){
+  showBooks()
+
+  //display them in some sort of table, or each on their own “card”
+  
+
+}
 
 function addBookToLibrary() {
-    const title = document.getElementById("bookTitle").value;
-    const author = document.getElementById("bookAuthor").value;
-    const year = document.getElementById("bookYear").value;
+  const title = document.getElementById("bookTitle").value;
+  const author = document.getElementById("bookAuthor").value;
+  const year = document.getElementById("bookYear").value;
 
 
-    if (title && author && year){
-        newBook = new Book(title, author, year)
-        myLibrary.push(newBook);
+  if (title && author && year){
+  newBook = new Book(title, author, year)
+    myLibrary.push(newBook);
 
-        document.getElementById("bookForm").reset();
-        showBooks();
-    }
+    document.getElementById("bookForm").reset();
+    showBooks();
+  }
 
 }
 document.getElementById("bookForm").addEventListener("submit", (event) => {
@@ -57,6 +64,6 @@ document.getElementById("bookForm").addEventListener("submit", (event) => {
 
 // Add event listener to the button
 document.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("showBooksButton");
-    button.addEventListener("click", () => showBooks(myLibrary));
+  const button = document.getElementById("showBooksButton");
+  button.addEventListener("click", () => showBooks(myLibrary));
 });
